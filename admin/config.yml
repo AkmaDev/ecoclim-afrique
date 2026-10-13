@@ -12,8 +12,8 @@ backend:
 local_backend: true
 
 locale: fr
-site_url: https://ecoclim-afrique-expertise.netlify.app
-display_url: https://ecoclim-afrique-expertise.netlify.app
+site_url: https://ecoclimafrique.com
+display_url: https://ecoclimafrique.com
 logo_url: /assets/images/logo-ecoclim.png
 
 media_folder: assets/uploads
