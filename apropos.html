@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À Propos — ECOCLIM AFRIQUE EXPERTISE</title>
+  <meta name="description" content="Cabinet de conseil environnemental africain fondé à Cotonou, Bénin. Expertise en droit de l'environnement, marchés carbone et décarbonisation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="css/tokens.css?v=3">
+  <link rel="stylesheet" href="css/reset.css?v=3">
+  <link rel="stylesheet" href="css/base.css?v=3">
+  <link rel="stylesheet" href="css/animations.css?v=3">
+  <link rel="stylesheet" href="css/nav.css?v=4">
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-height) + var(--space-2xl));
+      padding-bottom: var(--space-3xl);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+    .page-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+    .team-section {
+      padding-block: var(--space-3xl);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background-color: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: var(--space-xl);
+    }
+    .team-card {
+      background-color: var(--bg-surface);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .team-card__avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-muted), var(--success));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: #fff;
+    }
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .team-card__role {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      padding-left: var(--space-sm);
+      border-left: 2px solid var(--accent);
+    }
+    .team-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .values-section {
+      padding-block: var(--space-2xl);
+      border-top: 1px solid var(--border);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .value-item {
+      padding: var(--space-xl);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .value-item__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+    }
+    .value-item__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .consultant-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+      margin-top: var(--space-xl);
+    }
+    @media (max-width: 768px) {
+      .team-grid, .values-grid { grid-template-columns: 1fr; }
+      .consultant-grid { grid-template-columns: 1fr; }
+      .consultant-photo-col { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="assets/images/logo-ecoclim.png" alt="Logo Ecoclim Afrique Expertise" class="nav__logo-img" width="40" height="40">ECOCLIM AFRIQUE</a>
+      <div class="nav__links">
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="apropos.html" class="nav__link active">À Propos</a>
+        <a href="actualites.html" class="nav__link">Actualités</a>
+        <a href="contact.html" class="nav__cta"><span>Nous contacter</span><span class="btn__arrow">→</span></a>
+      </div>
+      <button class="nav__burger" id="navBurger"><span class="nav__burger-line"></span><span class="nav__burger-line"></span><span class="nav__burger-line"></span></button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navClose">✕</button>
+    <nav class="nav__mobile-links">
+      <a href="services.html" class="nav__mobile-link">Services</a>
+      <a href="apropos.html" class="nav__mobile-link">À Propos</a>
+      <a href="actualites.html" class="nav__mobile-link">Actualités</a>
+      <a href="contact.html" class="nav__mobile-link" style="color:var(--accent)">Contact →</a>
+    </nav>
+  </div>
+
+  <main data-scroll-container id="scroll-container">
+    <div class="page-hero" data-scroll-section>
+      <div class="container">
+        <div style="margin-bottom:var(--space-lg)"><span class="label-tag">Notre cabinet</span></div>
+        <h1 class="page-hero__title">Une synergie<br>d'expertises.</h1>
+        <p class="page-hero__sub">Fondé à Cotonou, ECOCLIM AFRIQUE EXPERTISE réunit des spécialistes du droit environnemental, du climat et de la résilience pour accompagner la transition écologique en Afrique.</p>
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <section class="section-lg" data-scroll-section>
+      <div class="container">
+        <div class="mission-grid">
+          <div>
+            <span class="label-tag" style="margin-bottom:var(--space-lg);display:block">Notre mission</span>
+            <h2 style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:600;letter-spacing:-0.03em;line-height:1.05;color:var(--text-primary);margin-bottom:var(--space-lg)">
+              Accompagner la transition écologique durable en Afrique.
+            </h2>
+            <p style="font-size:var(--text-lg);color:var(--text-secondary);font-weight:300;line-height:1.7;margin-bottom:var(--space-lg)">
+              Nous intervenons auprès d'entreprises, d'organisations internationales et d'États pour structurer leur conformité environnementale, développer des projets carbone et bâtir des stratégies de résilience climatique.
+            </p>
+            <a href="contact.html" class="btn btn--primary"><span>Travailler avec nous</span><span class="btn__arrow">→</span></a>
+          </div>
+          <div class="mission-grid-visual" style="background:radial-gradient(ellipse at 40% 50%,rgba(74,124,89,0.3) 0%,rgba(194,122,58,0.15) 50%,var(--bg-surface) 100%);min-height:360px;border-radius:var(--radius-lg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:5rem;opacity:0.3">🌍</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expert solo -->
+    <section class="team-section" data-scroll-section>
+      <div class="container">
+        <span class="label-tag" style="margin-bottom:var(--space-lg);display:block">Le consultant</span>
+        <div class="consultant-grid">
+          <!-- Photo -->
+          <div class="consultant-photo-col">
+            <div class="consultant-photo-inner" style="aspect-ratio:3/4;background:var(--bg-surface);border-radius:var(--radius-lg);border:1px solid var(--border);overflow:hidden;margin-bottom:var(--space-lg)">
+              <img src="assets/images/akremy.jpg" alt="A. Krémy, fondateur d'Ecoclim Afrique Expertise" width="577" height="797" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-tertiary);margin-bottom:var(--space-xs)">Contact direct</p>
+            <a href="mailto:akremy@ecoclimafrique.com" style="font-size:var(--text-sm);color:var(--accent)">akremy@ecoclimafrique.com</a>
+          </div>
+          <!-- Bio -->
+          <div>
+            <h2 style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:600;letter-spacing:-0.03em;line-height:1.05;color:var(--text-primary);margin-bottom:var(--space-sm)">A. Krémy</h2>
+            <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);padding-left:var(--space-sm);border-left:2px solid var(--accent);margin-bottom:var(--space-xl)">Consultant · Juriste Environnemental</p>
+            <p style="font-size:var(--text-lg);color:var(--text-secondary);font-weight:300;line-height:1.7;margin-bottom:var(--space-lg)">
+              Juriste spécialisé en droit de l'environnement et développement durable, avec plus de 14 ans d'expérience au service d'entreprises, d'organisations internationales et d'États en Afrique.
+            </p>
+            <p style="font-size:var(--text-base);color:var(--text-secondary);line-height:1.7;margin-bottom:var(--space-xl)">
+              Fondateur d'ECOCLIM AFRIQUE EXPERTISE, il intervient dans 12 pays africains pour structurer la conformité environnementale, développer des projets carbone certifiés et bâtir des stratégies de résilience climatique adaptées aux réalités du continent.
+            </p>
+            <!-- Expertises -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden">
+              <div style="background:var(--bg-surface);padding:var(--space-lg)">
+                <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:var(--space-sm)">Droit</p>
+                <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6">Droit de l'environnement · Conformité réglementaire · Études d'impact · Contentieux</p>
+              </div>
+              <div style="background:var(--bg-surface);padding:var(--space-lg)">
+                <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:var(--space-sm)">Climat</p>
+                <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6">Marchés carbone · Net Zero · SBTi · Gold Standard · Verra VCS</p>
+              </div>
+              <div style="background:var(--bg-surface);padding:var(--space-lg)">
+                <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:var(--space-sm)">Risques</p>
+                <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6">Gestion des catastrophes · DRR · Plans de contingence · Alerte précoce</p>
+              </div>
+              <div style="background:var(--bg-surface);padding:var(--space-lg)">
+                <p style="font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:var(--space-sm)">Terrain</p>
+                <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6">12 pays d'intervention · Bénin · Afrique de l'Ouest · UEMOA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section" data-scroll-section>
+      <div class="container">
+        <span class="label-tag" style="margin-bottom:var(--space-lg);display:block">Nos valeurs</span>
+        <h2 style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:600;letter-spacing:-0.03em;color:var(--text-primary)">Ce qui nous guide</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-item__title">Intégrité</div>
+            <p class="value-item__desc">Nous agissons avec rigueur et transparence dans chacune de nos missions, en plaçant l'éthique au cœur de notre pratique professionnelle.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-item__title">Innovation</div>
+            <p class="value-item__desc">Nous développons des solutions adaptées aux réalités africaines, en combinant expertise internationale et connaissance approfondie du terrain.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-item__title">Engagement</div>
+            <p class="value-item__desc">Nous nous engageons pour un développement durable en Afrique, convaincus que résilience climatique et croissance économique sont indissociables.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding-block:var(--space-3xl);border-top:1px solid var(--border)" data-scroll-section>
+      <div class="container" style="text-align:center">
+        <h2 style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:600;letter-spacing:-0.03em;color:var(--text-primary);margin-bottom:var(--space-lg)">Prêt à collaborer ?</h2>
+        <p style="font-size:var(--text-lg);color:var(--text-secondary);font-weight:300;margin-bottom:var(--space-xl);max-width:480px;margin-inline:auto">
+          Discutons de vos enjeux environnementaux et construisons ensemble la meilleure stratégie pour votre organisation.
+        </p>
+        <a href="contact.html" class="btn btn--primary"><span>Prendre contact</span><span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+    <footer class="footer" data-scroll-section>
+      <div class="container">
+        <div class="footer__bottom">
+          <p class="footer__copy">© 2025 ECOCLIM AFRIQUE EXPERTISE. Tous droits réservés.</p>
+          <a href="index.html" class="footer__link">← Retour à l'accueil</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="js/nav.js?v=3"></script>
+  <script src="js/locomotive.js?v=3"></script>
+</body>
+</html>

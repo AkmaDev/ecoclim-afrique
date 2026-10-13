@@ -1,0 +1,80 @@
+/* ============================================================
+   ECOCLIM AFRIQUE EXPERTISE — Design Tokens
+   Palette : dark forest · accent terracotta · warm off-white
+   ============================================================ */
+
+:root {
+  /* --- Backgrounds --- */
+  --bg-base:        #0f110e;
+  --bg-surface:     #161a14;
+  --bg-card:        #1c211a;
+  --bg-muted:       #242922;
+
+  /* --- Typography --- */
+  --text-primary:   #e8e4dc;
+  --text-secondary: #9a9589;
+  --text-tertiary:  #5c5a55;
+
+  /* --- Accent — Terracotta africain --- */
+  --accent:         #c27a3a;
+  --accent-muted:   #7a4c22;
+  --accent-subtle:  rgba(194, 122, 58, 0.08);
+  --accent-hover:   #d4883f;
+
+  /* --- Borders --- */
+  --border:         #2a2f28;
+  --border-light:   #3a4038;
+
+  /* --- Semantic --- */
+  --success:        #4a7c59;
+
+  /* --- Spacing Scale --- */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 96px;
+  --space-3xl: 160px;
+
+  /* --- Container --- */
+  --container-max: 1280px;
+  --container-pad: clamp(1.5rem, 5vw, 4rem);
+
+  /* --- Border Radius --- */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg: 16px;
+
+  /* --- Typography Scale --- */
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  3rem;
+  --text-4xl:  clamp(2.5rem, 5vw, 4.5rem);
+  --text-hero: clamp(3rem, 7vw, 6.5rem);
+
+  /* --- Motion --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo:  cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-inout:    cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 220ms;
+  --duration-base: 380ms;
+  --duration-slow: 600ms;
+  --duration-xslow: 900ms;
+
+  /* --- Nav --- */
+  --nav-height: 72px;
+
+  /* --- Z-index --- */
+  --z-nav:     100;
+  --z-overlay: 200;
+  --z-modal:   300;
+}

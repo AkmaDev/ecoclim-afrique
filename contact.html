@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — ECOCLIM AFRIQUE EXPERTISE</title>
+  <meta name="description" content="Contactez ECOCLIM AFRIQUE EXPERTISE pour vos projets environnementaux en Afrique. Email : akremy@ecoclimafrique.com — Tél : +229 01 60 20 64 64">
+  <link rel="canonical" href="https://ecoclimafrique.netlify.app/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="css/tokens.css?v=3">
+  <link rel="stylesheet" href="css/reset.css?v=3">
+  <link rel="stylesheet" href="css/base.css?v=3">
+  <link rel="stylesheet" href="css/animations.css?v=3">
+  <link rel="stylesheet" href="css/nav.css?v=4">
+  <link rel="stylesheet" href="css/contact.css?v=3">
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/images/logo-ecoclim.png" alt="Logo Ecoclim Afrique Expertise" class="nav__logo-img" width="40" height="40">
+        ECOCLIM AFRIQUE
+      </a>
+      <div class="nav__links">
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="apropos.html" class="nav__link">À Propos</a>
+        <a href="actualites.html" class="nav__link">Actualités</a>
+        <a href="contact.html" class="nav__cta nav__link active">
+          <span>Nous contacter</span>
+          <span class="btn__arrow">→</span>
+        </a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span class="nav__burger-line"></span>
+        <span class="nav__burger-line"></span>
+        <span class="nav__burger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navClose">✕</button>
+    <nav class="nav__mobile-links">
+      <a href="services.html" class="nav__mobile-link">Services</a>
+      <a href="apropos.html" class="nav__mobile-link">À Propos</a>
+      <a href="actualites.html" class="nav__mobile-link">Actualités</a>
+      <a href="contact.html" class="nav__mobile-link" style="color:var(--accent)">Contact →</a>
+    </nav>
+    <div class="nav__mobile-contact">
+      <div>akremy@ecoclimafrique.com</div>
+      <div>+229 01 60 20 64 64</div>
+    </div>
+  </div>
+
+  <main data-scroll-container id="scroll-container">
+    <div class="contact-page" data-scroll-section>
+      <div class="container">
+
+        <!-- Hero -->
+        <div class="contact-page__hero">
+          <div style="margin-bottom: var(--space-lg)">
+            <span class="label-tag">Nous écrire</span>
+          </div>
+          <h1 class="contact-page__hero-title">Parlons de<br>votre projet.</h1>
+          <p class="contact-page__hero-sub">
+            Notre équipe est disponible pour répondre à vos questions et vous accompagner dans vos démarches environnementales en Afrique.
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="contact-page__grid">
+          <!-- Info -->
+          <div class="contact-info">
+            <div class="contact-info__item">
+              <span class="contact-info__label">Email principal</span>
+              <a href="mailto:akremy@ecoclimafrique.com" class="contact-info__value">
+                akremy@<br>ecoclimafrique.com
+              </a>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__label">Téléphone</span>
+              <a href="tel:+22901602064" class="contact-info__value">+229 01 60 20 64 64</a>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__label">Localisation</span>
+              <span class="contact-info__value" style="cursor:default">Cotonou, Bénin</span>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__label">Zone d'intervention</span>
+              <span class="contact-info__value" style="cursor:default;font-size:var(--text-base);font-weight:400;color:var(--text-secondary)">
+                Afrique subsaharienne<br>Afrique de l'Ouest · Centrale · Australe
+              </span>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form
+            class="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact">
+            <div style="display:none">
+              <input name="bot-field">
+            </div>
+
+            <div class="contact-form__row">
+              <div class="form-field">
+                <label for="name">Nom complet *</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+              </div>
+              <div class="form-field">
+                <label for="org">Organisation</label>
+                <input type="text" id="org" name="organisation" placeholder="Votre organisation">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Domaine concerné</label>
+              <select id="subject" name="sujet">
+                <option value="" disabled selected>Choisissez un domaine</option>
+                <option value="droit">Droit de l'Environnement</option>
+                <option value="gestion">Gestion de l'Environnement</option>
+                <option value="catastrophes">Gestion des Catastrophes</option>
+                <option value="carbone">Marchés Carbone</option>
+                <option value="decarbonisation">Décarbonisation</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre projet ou votre question..." required></textarea>
+            </div>
+
+            <div class="contact-form__submit">
+              <button type="submit" class="btn btn--primary">
+                <span>Envoyer le message</span>
+                <span class="btn__arrow">→</span>
+              </button>
+            </div>
+
+            <div class="contact-form__success">
+              ✓ Votre message a bien été envoyé. Nous vous répondons sous 48h ouvrées.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" data-scroll-section>
+      <div class="container">
+        <div class="footer__bottom">
+          <p class="footer__copy">© 2025 ECOCLIM AFRIQUE EXPERTISE. Tous droits réservés.</p>
+          <a href="index.html" class="footer__link">← Retour à l'accueil</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="js/nav.js?v=3"></script>
+  <script src="js/locomotive.js?v=3"></script>
+  <script src="js/contact-form.js?v=3"></script>
+</body>
+</html>

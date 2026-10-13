@@ -1,0 +1,14 @@
+<article class="blog-card">
+  <a href="{{ post.url }}" class="blog-card__image" tabindex="-1" aria-hidden="true">
+    {% if post.data.image %}<img src="{{ post.data.image }}" alt="" loading="lazy" onerror="this.remove()">{% endif %}
+  </a>
+  <div class="blog-card__body">
+    <span class="blog-card__category">{{ post.data.category }}</span>
+    <{{ headingTag or "h2" }} class="blog-card__title"><a href="{{ post.url }}">{{ post.data.title }}</a></{{ headingTag or "h2" }}>
+    <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
+    <div class="blog-card__footer">
+      <time class="blog-card__date" datetime="{{ post.date | isoDate }}">{{ post.date | moisAnnee }}</time>
+      <a href="{{ post.url }}" class="blog-card__read-more">Lire <span>→</span></a>
+    </div>
+  </div>
+</article>

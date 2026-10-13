@@ -1,0 +1,258 @@
+/* ============================================================
+   ECOCLIM — Services Pages
+   ============================================================ */
+
+/* "Autres expertises" link group */
+.service-links {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .service-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-links .btn--ghost {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* --- Services Overview Page --- */
+.services-hero {
+  padding-top: calc(var(--nav-height) + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.services-hero__label {
+  margin-bottom: var(--space-lg);
+}
+
+.services-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.services-hero__sub {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* --- Service Detail Hero --- */
+.service-detail-hero {
+  padding-top: calc(var(--nav-height) + var(--space-2xl));
+  padding-bottom: var(--space-2xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-detail-hero__num {
+  font-family: var(--font-mono);
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 700;
+  color: var(--accent-subtle);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  user-select: none;
+  text-align: right;
+}
+
+.service-detail-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.service-detail-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.service-detail-hero__intro {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* --- Service Offerings List --- */
+.service-offerings {
+  padding-block: var(--space-3xl);
+}
+
+.service-offerings__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.offerings-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background-color: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.offering-item {
+  background-color: var(--bg-surface);
+  padding: var(--space-xl);
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  transition: background-color var(--duration-base);
+}
+
+.offering-item:hover {
+  background-color: var(--bg-card);
+}
+
+.offering-item__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.offering-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.offering-item__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.offering-item__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .service-detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail-hero__num {
+    display: none;
+  }
+
+  .offerings-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Services Overview Cards (services.html) --- */
+.services-list {
+  padding-block: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.services-list__item {
+  background-color: var(--bg-surface);
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  transition: background-color var(--duration-base);
+  cursor: pointer;
+}
+
+.services-list__item:hover {
+  background-color: var(--bg-card);
+}
+
+.services-list__item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.services-list__item-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.services-list__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.services-list__item-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.services-list__item-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.services-list__item-arrow {
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast), transform var(--duration-base) var(--ease-out-expo);
+}
+
+.services-list__item:hover .services-list__item-arrow {
+  color: var(--accent);
+  transform: translateX(8px);
+}
+
+@media (max-width: 768px) {
+  .services-list__item {
+    padding: var(--space-lg) var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .services-list__item-arrow {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — ECOCLIM AFRIQUE EXPERTISE</title>
+  <meta name="description" content="{{ excerpt | escape }}">
+  <meta property="og:title" content="{{ title | escape }}">
+  <meta property="og:description" content="{{ excerpt | escape }}">
+  {% if image %}<meta property="og:image" content="{{ image }}">{% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="/css/tokens.css?v=3">
+  <link rel="stylesheet" href="/css/reset.css?v=3">
+  <link rel="stylesheet" href="/css/base.css?v=3">
+  <link rel="stylesheet" href="/css/animations.css?v=3">
+  <link rel="stylesheet" href="/css/nav.css?v=4">
+  <link rel="stylesheet" href="/css/sections.css?v=6">
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo"><img src="/assets/images/logo-ecoclim.png" alt="Logo Ecoclim Afrique Expertise" class="nav__logo-img" width="40" height="40">ECOCLIM AFRIQUE</a>
+      <div class="nav__links">
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/apropos.html" class="nav__link">À Propos</a>
+        <a href="/actualites.html" class="nav__link active">Actualités</a>
+        <a href="/contact.html" class="nav__cta"><span>Nous contacter</span><span class="btn__arrow">→</span></a>
+      </div>
+      <button class="nav__burger" id="navBurger"><span class="nav__burger-line"></span><span class="nav__burger-line"></span><span class="nav__burger-line"></span></button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navClose">✕</button>
+    <nav class="nav__mobile-links">
+      <a href="/services.html" class="nav__mobile-link">Services</a>
+      <a href="/apropos.html" class="nav__mobile-link">À Propos</a>
+      <a href="/actualites.html" class="nav__mobile-link">Actualités</a>
+      <a href="/contact.html" class="nav__mobile-link" style="color:var(--accent)">Contact →</a>
+    </nav>
+  </div>
+
+  <main data-scroll-container id="scroll-container">
+    <article class="article" data-scroll-section>
+      <div class="container article__container">
+        <a href="/actualites.html" class="article__back">← Toutes les actualités</a>
+        <header class="article__header">
+          <span class="blog-card__category">{{ category }}</span>
+          <h1 class="article__title">{{ title }}</h1>
+          {% if excerpt %}<p class="article__lead">{{ excerpt }}</p>{% endif %}
+          <time class="article__date" datetime="{{ page.date | isoDate }}">{{ page.date | dateLongue }}</time>
+        </header>
+        {% if image %}
+        <figure class="article__cover"><img src="{{ image }}" alt="" onerror="this.parentElement.remove()"></figure>
+        {% endif %}
+        <div class="article__body">
+          {{ content | safe }}
+        </div>
+        <div class="article__cta">
+          <p>Un projet ou une question sur ce sujet ?</p>
+          <a href="/contact.html" class="btn btn--primary"><span>Prendre contact</span><span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="footer" data-scroll-section>
+      <div class="container">
+        <div class="footer__bottom">
+          <p class="footer__copy">© 2025 ECOCLIM AFRIQUE EXPERTISE. Tous droits réservés.</p>
+          <a href="/index.html" class="footer__link">← Retour à l'accueil</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="/js/nav.js?v=3"></script>
+  <script src="/js/locomotive.js?v=3"></script>
+  <script>
+    // Recalcule la hauteur de défilement une fois les images de l'article chargées
+    window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
+  </script>
+</body>
+</html>

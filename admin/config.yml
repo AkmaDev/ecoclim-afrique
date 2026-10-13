@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Nouvel article : {{slug}}"
+    update: "Modification : {{slug}}"
+    delete: "Suppression : {{slug}}"
+    uploadMedia: "Image : {{path}}"
+    deleteMedia: "Suppression image : {{path}}"
+
+# Test en local : `npm run cms` puis `npm start`, ouvrir http://localhost:8080/admin/
+local_backend: true
+
+locale: fr
+site_url: https://ecoclim-afrique-expertise.netlify.app
+display_url: https://ecoclim-afrique-expertise.netlify.app
+logo_url: /assets/images/logo-ecoclim.png
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: actualites
+    label: Actualités
+    label_singular: Article
+    folder: _posts
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    sortable_fields:
+      default: { field: date, direction: descending }
+      fields: [date, title]
+    summary: "{{title}} — {{date | date('DD/MM/YYYY')}}{{draft | ternary(' (brouillon)', '')}}"
+    preview_path: "actualites/{{slug}}/"
+    fields:
+      - { label: Titre, name: title, widget: string }
+      - { label: Date de publication, name: date, widget: datetime, date_format: DD/MM/YYYY, time_format: false, format: YYYY-MM-DD }
+      - label: Catégorie
+        name: category
+        widget: select
+        options:
+          - Droit de l'Environnement
+          - Marchés Carbone
+          - Décarbonisation
+          - Gestion des Catastrophes
+          - Gestion de l'Environnement
+      - { label: "Résumé (affiché sur la carte, 1 à 2 phrases)", name: excerpt, widget: text }
+      - { label: Image de couverture, name: image, widget: image, required: false }
+      - { label: "Brouillon (non visible sur le site)", name: draft, widget: boolean, default: false }
+      - { label: Contenu, name: body, widget: markdown }
