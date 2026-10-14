@@ -51,7 +51,7 @@
 .nav__logo-mark {
   width: 32px;
   height: 32px;
-  background-color: var(--accent);
+  background-color: var(--accent-fill);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -114,8 +114,8 @@
   padding: 10px 20px;
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--bg-base);
-  background-color: var(--accent);
+  color: #fff;
+  background-color: var(--accent-fill);
   border-radius: var(--radius-sm);
   position: relative;
   overflow: hidden;

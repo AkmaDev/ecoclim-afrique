@@ -7,7 +7,7 @@
    ============================================================ */
 
 .statement {
-  background-color: var(--accent);
+  background-color: var(--accent-fill);
   padding-block: var(--space-xl);
   overflow: hidden;
 }
