@@ -26,9 +26,7 @@ collections:
     folder: _posts
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
-    sortable_fields:
-      default: { field: date, direction: descending }
-      fields: [date, title]
+    sortable_fields: [date, title]
     summary: "{{title}} — {{date | date('DD/MM/YYYY')}}{{draft | ternary(' (brouillon)', '')}}"
     preview_path: "actualites/{{slug}}/"
     fields:
