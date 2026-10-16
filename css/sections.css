@@ -896,3 +896,39 @@ a.blog-card__image { display: block; }
   gap: var(--space-md);
   color: var(--text-primary);
 }
+
+.article__share {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+.article__share-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+.article__share-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.article__share-links a,
+.article__share-links button {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--duration-fast), color var(--duration-fast);
+}
+.article__share-links a:hover,
+.article__share-links button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Résumé limité à 4 lignes sur les cartes */
+.blog-card__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

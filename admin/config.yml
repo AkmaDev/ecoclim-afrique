@@ -16,6 +16,12 @@ site_url: https://ecoclimafrique.com
 display_url: https://ecoclimafrique.com
 logo_url: /assets/images/logo-ecoclim.png
 
+# Adresses d'articles et noms d'images sans accents ni caractères spéciaux
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
 media_folder: assets/uploads
 public_folder: /assets/uploads
 
@@ -57,13 +63,14 @@ collections:
       - label: Résumé
         name: excerpt
         widget: text
-        hint: "1 ou 2 phrases. Elles apparaissent sous le titre, sur la page Actualités et sur l'accueil."
+        pattern: ['^[\s\S]{0,300}$', "Le résumé doit faire 300 caractères maximum (1 ou 2 phrases). Le développement va dans le texte de l'article."]
+        hint: "1 ou 2 phrases, 300 caractères maximum. Elles apparaissent sous le titre, sur la page Actualités, sur l'accueil et quand l'article est partagé."
       - label: Photo de l'article
         name: image
         widget: image
         required: false
         choose_url: false
-        hint: "Facultatif. Une photo en format paysage (plus large que haute) s'affiche le mieux."
+        hint: "Facultatif. Une photo en format paysage (plus large que haute), idéalement 1200 pixels de large : c'est aussi l'image affichée quand l'article est partagé sur WhatsApp ou LinkedIn."
       - label: "Masquer cet article du site"
         name: draft
         widget: boolean

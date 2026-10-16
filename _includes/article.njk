@@ -3,12 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- set pageUrl = page.url | absUrl -%}
+  {%- if draft %}{% set shareImage = "" %}{% else %}{% set shareImage = image | shareImage %}{% endif -%}
+  {%- set desc = excerpt | metaDesc %}
   <title>{{ title }} — ECOCLIM AFRIQUE EXPERTISE</title>
-  <meta name="description" content="{{ excerpt | escape }}">
-  <link rel="canonical" href="https://ecoclimafrique.com{{ page.url }}">
-  <meta property="og:title" content="{{ title | escape }}">
-  <meta property="og:description" content="{{ excerpt | escape }}">
-  {% if image %}<meta property="og:image" content="{{ image }}">{% endif %}
+  <meta name="description" content="{{ desc }}">
+  <link rel="canonical" href="{{ pageUrl }}">
+
+  <!-- Aperçu de partage (WhatsApp, LinkedIn, Facebook, X) -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:image" content="{{ shareImage }}">
+  <meta property="og:image:alt" content="{{ title }}">
+  <meta property="article:published_time" content="{{ page.date | isoDate }}">
+  {% if category %}<meta property="article:section" content="{{ category }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ desc }}">
+  <meta name="twitter:image" content="{{ shareImage }}">
+
+  <!-- Données structurées pour Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ title | jsonString | safe }},
+    "description": {{ desc | jsonString | safe }},
+    "image": [{{ shareImage | jsonString | safe }}],
+    "datePublished": "{{ page.date | isoDate }}",
+    "dateModified": "{{ page.date | isoDate }}",
+    "inLanguage": "fr",
+    "mainEntityOfPage": {{ pageUrl | jsonString | safe }},
+    {% if category %}"articleSection": {{ category | jsonString | safe }},{% endif %}
+    "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.name }}",
+      "logo": { "@type": "ImageObject", "url": "{{ '/assets/images/logo-ecoclim.png' | absUrl }}" }
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -18,7 +56,7 @@
   <link rel="stylesheet" href="/css/base.css?v=7">
   <link rel="stylesheet" href="/css/animations.css?v=7">
   <link rel="stylesheet" href="/css/nav.css?v=7">
-  <link rel="stylesheet" href="/css/sections.css?v=7">
+  <link rel="stylesheet" href="/css/sections.css?v=8">
 </head>
 <body>
 
@@ -61,6 +99,18 @@
         <div class="article__body">
           {{ content | safe }}
         </div>
+        {%- set enc = pageUrl | urlencode -%}
+        {%- set encTitle = title | urlencode %}
+        <div class="article__share">
+          <p class="article__share-label">Partager cet article</p>
+          <div class="article__share-links">
+            <a href="https://wa.me/?text={{ encTitle }}%20{{ enc }}" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ enc }}" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ enc }}" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url={{ enc }}&amp;text={{ encTitle }}" target="_blank" rel="noopener">X</a>
+            <button type="button" data-copy="{{ pageUrl }}">Copier le lien</button>
+          </div>
+        </div>
         <div class="article__cta">
           <p>Un projet ou une question sur ce sujet ?</p>
           <a href="/contact.html" class="btn btn--primary"><span>Prendre contact</span><span class="btn__arrow">→</span></a>
@@ -86,6 +136,16 @@
   <script>
     // Recalcule la hauteur de défilement une fois les images de l'article chargées
     window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
+
+    // Partage natif sur mobile, copie du lien sinon
+    document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+      const url = btn.dataset.copy;
+      try {
+        if (navigator.share) { await navigator.share({ title: document.title, url }); return; }
+        await navigator.clipboard.writeText(url);
+        btn.textContent = 'Lien copié ✓';
+      } catch (e) { /* partage annulé */ }
+    }));
   </script>
 </body>
 </html>

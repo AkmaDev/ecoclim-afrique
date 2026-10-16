@@ -17,9 +17,16 @@
     Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Images ajoutées depuis le tableau de bord : jamais figées en cache
+# (sinon un « introuvable » vu pendant la rédaction reste bloqué dans le navigateur)
+[[headers]]
+  for = "/assets/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # HTML — never cache (always fresh)
 [[headers]]
@@ -52,3 +59,16 @@
   from = "/accueil"
   to = "/"
   status = 301
+
+# Ancienne adresse (avec accents) du premier article
+[[redirects]]
+  from = "/actualites/2026-10-la-g%C3%A9opolitque-%C3%A0-l%C3%A8re-de-lia/"
+  to = "/actualites/2026-10-la-geopolitique-a-l-ere-de-l-ia/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/actualites/2026-10-la-géopolitque-à-lère-de-lia/"
+  to = "/actualites/2026-10-la-geopolitique-a-l-ere-de-l-ia/"
+  status = 301
+  force = true

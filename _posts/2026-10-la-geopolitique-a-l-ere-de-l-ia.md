@@ -1,5 +1,5 @@
 ---
-title: La Géopolitque à l'ère de l'IA
+title: La Géopolitique à l'ère de l'IA
 date: 2026-10-16
 category: Droit de l'Environnement
 excerpt: >-
