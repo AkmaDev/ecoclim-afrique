@@ -68,7 +68,7 @@
         noImagesFound: 'Aucune image pour le moment. Cliquez sur « Ajouter une image depuis mon ordinateur ».',
         uploading: 'Envoi en cours...',
         upload: 'Ajouter une image depuis mon ordinateur',
-        deleteSelected: 'Supprimer',
+        deleteSelected: 'Supprimer de la bibliothèque',
         chooseSelected: 'Utiliser cette image'
       }
     },
@@ -97,8 +97,9 @@
 
   CMS.registerLocale('fr', fusionner(window.DECAP_FR, textes));
 
-  // Boutons de la bibliothèque d'images inutiles pour le client
-  const boutonsMasques = ['Copier le nom', 'Copier', 'Télécharger'];
+  // Boutons de la bibliothèque d'images inutiles ou risqués pour le client
+  // (« Supprimer » effaçait une image même utilisée par un article publié)
+  const boutonsMasques = ['Copier le nom', 'Copier', 'Télécharger', 'Supprimer de la bibliothèque'];
   new MutationObserver(() => {
     document.querySelectorAll('button').forEach(b => {
       if (boutonsMasques.includes(b.textContent.trim())) b.style.display = 'none';
