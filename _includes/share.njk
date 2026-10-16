@@ -1,0 +1,13 @@
+{%- import "icons.njk" as icons -%}
+{#- Boutons de partage. compact = icônes seules (ligne d'auteur), sinon icônes + libellés -#}
+{%- macro buttons(url, title, compact=false) -%}
+{%- set u = url | urlencode -%}
+{%- set t = title | urlencode -%}
+<div class="share{% if compact %} share--compact{% endif %}">
+  <a class="share__btn share__btn--whatsapp" href="https://wa.me/?text={{ t }}%20{{ u }}" target="_blank" rel="noopener" aria-label="Partager sur WhatsApp" title="WhatsApp">{{ icons.icon_whatsapp | safe }}{% if not compact %}<span>WhatsApp</span>{% endif %}</a>
+  <a class="share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ u }}" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn" title="LinkedIn">{{ icons.icon_linkedin | safe }}{% if not compact %}<span>LinkedIn</span>{% endif %}</a>
+  <a class="share__btn" href="https://www.facebook.com/sharer/sharer.php?u={{ u }}" target="_blank" rel="noopener" aria-label="Partager sur Facebook" title="Facebook">{{ icons.icon_facebook | safe }}{% if not compact %}<span>Facebook</span>{% endif %}</a>
+  <a class="share__btn" href="https://twitter.com/intent/tweet?url={{ u }}&amp;text={{ t }}" target="_blank" rel="noopener" aria-label="Partager sur X" title="X">{{ icons.icon_x | safe }}{% if not compact %}<span>X</span>{% endif %}</a>
+  <button class="share__btn" type="button" data-copy="{{ url }}" aria-label="Copier le lien" title="Copier le lien">{{ icons.icon_link | safe }}{% if not compact %}<span>Copier le lien</span>{% endif %}</button>
+</div>
+{%- endmacro -%}

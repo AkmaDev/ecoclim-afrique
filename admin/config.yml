@@ -50,6 +50,12 @@ collections:
         time_format: false
         format: YYYY-MM-DD
         hint: "Date affichée sous l'article. Par défaut, la date du jour."
+      - label: Auteur
+        name: author
+        widget: select
+        default: "A. Krémy"
+        options: ["A. Krémy"]
+        hint: "Affiché avec sa photo en haut et en bas de l'article."
       - label: Catégorie
         name: category
         widget: select

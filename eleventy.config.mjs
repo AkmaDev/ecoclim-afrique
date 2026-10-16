@@ -43,6 +43,13 @@ export default function (eleventyConfig) {
       return SITE + "/assets/images/hero.jpg";
     }
   });
+  // Temps de lecture (≈ 200 mots/minute)
+  eleventyConfig.addFilter("tempsLecture", html => {
+    const mots = String(html || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(mots / 200)) + " min de lecture";
+  });
+  // Autres articles publiés (pour « À lire aussi »)
+  eleventyConfig.addFilter("autresArticles", (posts, url, n = 3) => (posts || []).filter(p => p.url !== url).slice(0, n));
   eleventyConfig.addFilter("jsonString", s => JSON.stringify(String(s || "")));
 
   return {

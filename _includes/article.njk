@@ -19,6 +19,7 @@
   <meta property="og:description" content="{{ desc }}">
   <meta property="og:image" content="{{ shareImage }}">
   <meta property="og:image:alt" content="{{ title }}">
+  <meta property="article:author" content="{{ author or 'A. Krémy' }}">
   <meta property="article:published_time" content="{{ page.date | isoDate }}">
   {% if category %}<meta property="article:section" content="{{ category }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +40,7 @@
     "inLanguage": "fr",
     "mainEntityOfPage": {{ pageUrl | jsonString | safe }},
     {% if category %}"articleSection": {{ category | jsonString | safe }},{% endif %}
-    "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" },
+    "author": { "@type": "Person", "name": {{ (author or "A. Krémy") | jsonString | safe }}, "url": "{{ '/apropos.html' | absUrl }}" },
     "publisher": {
       "@type": "Organization",
       "name": "{{ site.name }}",
@@ -53,10 +54,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
   <link rel="stylesheet" href="/css/tokens.css?v=7">
   <link rel="stylesheet" href="/css/reset.css?v=7">
-  <link rel="stylesheet" href="/css/base.css?v=7">
+  <link rel="stylesheet" href="/css/base.css?v=8">
   <link rel="stylesheet" href="/css/animations.css?v=7">
   <link rel="stylesheet" href="/css/nav.css?v=7">
-  <link rel="stylesheet" href="/css/sections.css?v=8">
+  <link rel="stylesheet" href="/css/sections.css?v=9">
 </head>
 <body>
 
@@ -84,37 +85,71 @@
   </div>
 
   <main data-scroll-container id="scroll-container">
+    {%- import "share.njk" as share -%}
+    {%- set auteurNom = author or "A. Krémy" -%}
+    {%- set auteur = auteurs[auteurNom] -%}
     <article class="article" data-scroll-section>
       <div class="container article__container">
         <a href="/actualites.html" class="article__back">← Toutes les actualités</a>
         <header class="article__header">
-          <span class="blog-card__category">{{ category }}</span>
+          {% if category %}<span class="blog-card__category">{{ category }}</span>{% endif %}
           <h1 class="article__title">{{ title }}</h1>
           {% if excerpt %}<p class="article__lead">{{ excerpt }}</p>{% endif %}
-          <time class="article__date" datetime="{{ page.date | isoDate }}">{{ page.date | dateLongue }}</time>
         </header>
+
+        <div class="byline">
+          <div class="byline__author">
+            {% if auteur and auteur.photo %}<img class="byline__avatar" src="{{ auteur.photo }}" alt="" width="44" height="44">{% endif %}
+            <div>
+              <p class="byline__name">{{ auteurNom }}{% if auteur %}<span class="byline__role"> · {{ auteur.role }}</span>{% endif %}</p>
+              <p class="byline__meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | dateLongue }}</time> · {{ content | tempsLecture }}</p>
+            </div>
+          </div>
+          {{ share.buttons(pageUrl, title, true) }}
+        </div>
+
         {% if image %}
         <figure class="article__cover"><img src="{{ image }}" alt="" onerror="this.parentElement.remove()"></figure>
         {% endif %}
         <div class="article__body">
           {{ content | safe }}
         </div>
-        {%- set enc = pageUrl | urlencode -%}
-        {%- set encTitle = title | urlencode %}
-        <div class="article__share">
-          <p class="article__share-label">Partager cet article</p>
-          <div class="article__share-links">
-            <a href="https://wa.me/?text={{ encTitle }}%20{{ enc }}" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ enc }}" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ enc }}" target="_blank" rel="noopener">Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url={{ enc }}&amp;text={{ encTitle }}" target="_blank" rel="noopener">X</a>
-            <button type="button" data-copy="{{ pageUrl }}">Copier le lien</button>
+
+        <section class="article__share" aria-label="Partager">
+          <p class="article__share-label">Cet article vous a été utile ? Partagez-le</p>
+          {{ share.buttons(pageUrl, title) }}
+        </section>
+
+        {% if auteur %}
+        <aside class="author-card">
+          {% if auteur.photo %}<img class="author-card__photo" src="{{ auteur.photo }}" alt="{{ auteurNom }}" width="72" height="72" loading="lazy">{% endif %}
+          <div>
+            <p class="author-card__label">Écrit par</p>
+            <p class="author-card__name">{{ auteurNom }}</p>
+            <p class="author-card__role">{{ auteur.role }}</p>
+            <p class="author-card__bio">{{ auteur.bio }}</p>
+            <a class="author-card__link" href="{{ auteur.lien }}">En savoir plus →</a>
           </div>
-        </div>
+        </aside>
+        {% endif %}
+
         <div class="article__cta">
-          <p>Un projet ou une question sur ce sujet ?</p>
+          <div>
+            <p class="article__cta-title">Un projet ou une question sur ce sujet ?</p>
+            <p class="article__cta-text">Échangeons sur votre situation : conformité, études d'impact, stratégie climat.</p>
+          </div>
           <a href="/contact.html" class="btn btn--primary"><span>Prendre contact</span><span class="btn__arrow">→</span></a>
         </div>
+
+        {%- set autres = collections.posts | autresArticles(page.url) %}
+        {% if autres.length %}
+        <section class="article__related">
+          <h2 class="article__related-title">À lire aussi</h2>
+          <div class="article__related-grid">
+            {% set headingTag = "h3" %}{% for post in autres %}{% include "post-card.njk" %}{% endfor %}
+          </div>
+        </section>
+        {% endif %}
       </div>
     </article>
 

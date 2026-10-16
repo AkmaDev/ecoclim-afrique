@@ -885,17 +885,7 @@ a.blog-card__image { display: block; }
 }
 .article__body img { max-width: 100%; height: auto; border-radius: var(--radius-md); }
 
-.article__cta {
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  color: var(--text-primary);
-}
+
 
 .article__share {
   margin-top: var(--space-2xl);
@@ -910,25 +900,96 @@ a.blog-card__image { display: block; }
   color: var(--text-tertiary);
   margin-bottom: var(--space-md);
 }
-.article__share-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
-.article__share-links a,
-.article__share-links button {
-  font-size: var(--text-sm);
-  color: var(--text-primary);
-  padding: 8px 16px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  cursor: pointer;
-  transition: border-color var(--duration-fast), color var(--duration-fast);
-}
-.article__share-links a:hover,
-.article__share-links button:hover { border-color: var(--accent); color: var(--accent); }
-
 /* Résumé limité à 4 lignes sur les cartes */
 .blog-card__excerpt {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ============================================================
+   Article — ligne d'auteur, partage, carte auteur, à lire aussi
+   ============================================================ */
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  margin-bottom: var(--space-xl);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.byline__author { display: flex; align-items: center; gap: var(--space-sm); }
+.byline__avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; object-position: center 20%;
+  border: 1px solid var(--border-light);
+}
+.byline__name { font-size: var(--text-sm); font-weight: 500; color: var(--text-primary); }
+.byline__role { font-weight: 400; color: var(--text-secondary); }
+.byline__meta { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 2px; }
+
+.share { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.share__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 40px; padding: 0 16px;
+  font-size: var(--text-sm); color: var(--text-primary);
+  border: 1px solid var(--border-light); border-radius: 999px;
+  background: transparent; cursor: pointer;
+  transition: border-color var(--duration-fast), color var(--duration-fast), background-color var(--duration-fast);
+}
+.share__btn:hover { border-color: var(--accent); color: var(--accent); }
+.share__btn--whatsapp { background-color: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+.share__btn--whatsapp:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+.share--compact .share__btn { width: 40px; padding: 0; justify-content: center; }
+.share--compact .share__btn--whatsapp { background: transparent; border-color: var(--border-light); color: var(--text-primary); }
+.share--compact .share__btn--whatsapp:hover { border-color: var(--accent); color: var(--accent); }
+
+.author-card {
+  display: flex; gap: var(--space-lg); align-items: flex-start;
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.author-card__photo {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+  object-fit: cover; object-position: center 20%;
+}
+.author-card__label {
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary);
+}
+.author-card__name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-top: 4px; }
+.author-card__role { font-size: var(--text-sm); color: var(--accent); margin-bottom: var(--space-sm); }
+.author-card__bio { font-size: var(--text-sm); line-height: 1.7; color: var(--text-secondary); }
+.author-card__link { display: inline-block; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--accent); }
+
+.article__cta {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-md);
+}
+.article__cta-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
+.article__cta-text { font-size: var(--text-sm); color: var(--text-secondary); margin-top: 4px; }
+
+.article__related { margin-top: var(--space-3xl); }
+.article__related-title {
+  font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600;
+  color: var(--text-primary); margin-bottom: var(--space-lg);
+}
+.article__related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-md); }
+.article__related .blog-card { width: auto; opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+  .author-card { flex-direction: column; }
+  .article__cta .btn { width: 100%; justify-content: center; }
 }
