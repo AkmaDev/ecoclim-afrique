@@ -56,7 +56,7 @@
         onDelete: 'Supprimer cette image de la bibliothèque ?'
       },
       mediaLibraryModal: {
-        images: 'Choisissez une image',
+        images: 'Cliquez sur une image, puis sur « Utiliser cette image »',
         search: 'Rechercher une image...',
         noImagesFound: 'Aucune image pour le moment. Cliquez sur « Ajouter une image depuis mon ordinateur ».',
         uploading: 'Envoi en cours...',
