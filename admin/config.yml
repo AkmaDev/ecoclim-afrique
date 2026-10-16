@@ -27,21 +27,52 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     sortable_fields: [date, title]
-    summary: "{{title}} — {{date | date('DD/MM/YYYY')}}{{draft | ternary(' (brouillon)', '')}}"
+    summary: "{{title}} — {{date | date('DD/MM/YYYY')}}{{draft | ternary(' · masqué du site', '')}}"
     preview_path: "actualites/{{slug}}/"
+    editor:
+      preview: false
     fields:
-      - { label: Titre, name: title, widget: string }
-      - { label: Date de publication, name: date, widget: datetime, date_format: DD/MM/YYYY, time_format: false, format: YYYY-MM-DD }
+      - label: Titre de l'article
+        name: title
+        widget: string
+        hint: "Court et clair, par exemple : « Ce que change la nouvelle loi sur l'environnement au Bénin »."
+      - label: Date
+        name: date
+        widget: datetime
+        default: "{{now}}"
+        date_format: DD/MM/YYYY
+        time_format: false
+        format: YYYY-MM-DD
+        hint: "Date affichée sous l'article. Par défaut, la date du jour."
       - label: Catégorie
         name: category
         widget: select
+        hint: "Le domaine dont parle l'article."
         options:
           - Droit de l'Environnement
           - Marchés Carbone
           - Décarbonisation
           - Gestion des Catastrophes
           - Gestion de l'Environnement
-      - { label: "Résumé (affiché sur la carte, 1 à 2 phrases)", name: excerpt, widget: text }
-      - { label: Image de couverture, name: image, widget: image, required: false }
-      - { label: "Brouillon (non visible sur le site)", name: draft, widget: boolean, default: false }
-      - { label: Contenu, name: body, widget: markdown }
+      - label: Résumé
+        name: excerpt
+        widget: text
+        hint: "1 ou 2 phrases. Elles apparaissent sous le titre, sur la page Actualités et sur l'accueil."
+      - label: Photo de l'article
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Facultatif. Une photo en format paysage (plus large que haute) s'affiche le mieux."
+      - label: "Masquer cet article du site"
+        name: draft
+        widget: boolean
+        default: false
+        hint: "Activez pour garder l'article de côté sans qu'il soit visible (brouillon). Désactivez pour qu'il apparaisse."
+      - label: Texte de l'article
+        name: body
+        widget: markdown
+        modes: [rich_text]
+        buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, quote, link]
+        editor_components: [image]
+        hint: "Utilisez « Titres » pour découper l'article en parties."
