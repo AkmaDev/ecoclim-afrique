@@ -23,21 +23,9 @@ Aujourd'hui, la même logique s'applique à une ressource d'un genre nouveau : l
 
 L'intelligence artificielle donne l'impression d'être immatérielle. En réalité, elle repose sur une chaîne physique très concrète :
 
-* des 
-
-  **minerais critiques**
-
-   (cobalt, cuivre, lithium, terres rares) indispensables aux puces, aux serveurs et aux batteries, dont une part importante est extraite en Afrique ;
-* des 
-
-  **centres de données**
-
-   qui consomment de grandes quantités d'électricité et d'eau pour fonctionner et se refroidir ;
-* des 
-
-  **données**
-
-  , collectées auprès des populations, des entreprises et des administrations, puis souvent traitées et valorisées hors du continent.
+* des **minerais critiques** (cobalt, cuivre, lithium, terres rares) indispensables aux puces, aux serveurs et aux batteries, dont une part importante est extraite en Afrique ;
+* des **centres de données** qui consomment de grandes quantités d'électricité et d'eau pour fonctionner et se refroidir ;
+* des **données**, collectées auprès des populations, des entreprises et des administrations, puis souvent traitées et valorisées hors du continent.
 
 Le risque est de voir se répéter un schéma connu : l'Afrique fournit les matières premières et supporte les impacts environnementaux de l'extraction, pendant que la valeur ajoutée se crée ailleurs.
 
@@ -45,15 +33,9 @@ Le risque est de voir se répéter un schéma connu : l'Afrique fournit les mati
 
 Pour les États et les entreprises africaines, la course à l'IA pose des questions très concrètes :
 
-* **Mines**
-
-   : les projets d'extraction de minerais critiques doivent faire l'objet d'études d'impact environnemental et social rigoureuses, avec une réelle consultation des communautés concernées.
-* **Infrastructures**
-
-   : l'implantation de centres de données sur le continent doit tenir compte de la disponibilité de l'eau, de la source d'énergie utilisée et de leur effet sur les réseaux locaux.
-* **Données**
-
-   : la protection des données personnelles et la souveraineté numérique deviennent des sujets de conformité à part entière, comme le droit de l'environnement.
+* **Mines** : les projets d'extraction de minerais critiques doivent faire l'objet d'études d'impact environnemental et social rigoureuses, avec une réelle consultation des communautés concernées.
+* **Infrastructures** : l'implantation de centres de données sur le continent doit tenir compte de la disponibilité de l'eau, de la source d'énergie utilisée et de leur effet sur les réseaux locaux.
+* **Données** : la protection des données personnelles et la souveraineté numérique deviennent des sujets de conformité à part entière, comme le droit de l'environnement.
 
 **Passer de terrain convoité à acteur**
 

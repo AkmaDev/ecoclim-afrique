@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="/css/base.css?v=8">
   <link rel="stylesheet" href="/css/animations.css?v=7">
   <link rel="stylesheet" href="/css/nav.css?v=7">
-  <link rel="stylesheet" href="/css/sections.css?v=9">
+  <link rel="stylesheet" href="/css/sections.css?v=10">
 </head>
 <body>
 
@@ -83,6 +83,12 @@
       <a href="/contact.html" class="nav__mobile-link" style="color:var(--accent)">Contact →</a>
     </nav>
   </div>
+
+  {%- import "share.njk" as shareFloat %}
+  <aside class="share-float" id="shareFloat" aria-label="Partager">
+    <span class="share-float__label">Partager</span>
+    {{ shareFloat.buttons(pageUrl, title, true, true) }}
+  </aside>
 
   <main data-scroll-container id="scroll-container">
     {%- import "share.njk" as share -%}
@@ -115,7 +121,7 @@
           {{ content | safe }}
         </div>
 
-        <section class="article__share" aria-label="Partager">
+        <section class="article__share" id="shareBottom" aria-label="Partager">
           <p class="article__share-label">Cet article vous a été utile ? Partagez-le</p>
           {{ share.buttons(pageUrl, title) }}
         </section>
@@ -171,6 +177,18 @@
   <script>
     // Recalcule la hauteur de défilement une fois les images de l'article chargées
     window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
+
+    // Barre de partage flottante (grand écran) : visible entre la ligne d'auteur et le partage du bas
+    (function () {
+      const bar = document.getElementById('shareFloat');
+      const top = document.querySelector('.byline');
+      const bottom = document.getElementById('shareBottom');
+      if (!bar || !top || !bottom || !('IntersectionObserver' in window)) return;
+      let topPassed = false, bottomVisible = false;
+      const maj = () => bar.classList.toggle('is-visible', topPassed && !bottomVisible);
+      new IntersectionObserver(([e]) => { topPassed = !e.isIntersecting && e.boundingClientRect.top < 0; maj(); }).observe(top);
+      new IntersectionObserver(([e]) => { bottomVisible = e.isIntersecting || e.boundingClientRect.top < 0; maj(); }).observe(bottom);
+    })();
 
     // Partage natif sur mobile, copie du lien sinon
     document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
