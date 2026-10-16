@@ -75,4 +75,4 @@ collections:
         modes: [rich_text]
         buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, quote, link]
         editor_components: [image]
-        hint: "Utilisez « Titres » pour découper l'article en parties."
+        hint: "Pour un intertitre : placez le curseur sur la ligne, cliquez sur H puis « Intertitre ». Pour revenir au texte normal : H puis cliquez à nouveau sur le même choix (ou Ctrl+Z pour annuler)."

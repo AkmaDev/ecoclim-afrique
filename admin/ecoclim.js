@@ -41,6 +41,13 @@
         deployButtonLabel: 'Voir sur le site'
       },
       editorWidgets: {
+        markdown: {
+          headings: 'Intertitres'
+        },
+        headingOptions: {
+          headingTwo: 'Intertitre',
+          headingThree: 'Sous-intertitre'
+        },
         image: {
           choose: 'Ajouter une image',
           chooseDifferent: "Changer d'image",
