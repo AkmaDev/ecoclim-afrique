@@ -2,7 +2,7 @@
 title: "Gestion des catastrophes : les défaillances humaines en question » :
   retour sur une formation riche en échanges"
 date: 2026-10-17
-author: A. Krémy
+author: Remy AKPOVI
 category: Gestion des Catastrophes
 excerpt: "Pourquoi les professionnels aguerris, les intervenants d'une mission
   de sauveteur ou de secours peuvent ils faire des erreurs. "

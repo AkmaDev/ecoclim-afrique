@@ -19,7 +19,7 @@
   <meta property="og:description" content="{{ desc }}">
   <meta property="og:image" content="{{ shareImage }}">
   <meta property="og:image:alt" content="{{ title }}">
-  <meta property="article:author" content="{{ author or 'A. Krémy' }}">
+  <meta property="article:author" content="{{ author or 'Remy AKPOVI' }}">
   <meta property="article:published_time" content="{{ page.date | isoDate }}">
   {% if category %}<meta property="article:section" content="{{ category }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
@@ -40,7 +40,7 @@
     "inLanguage": "fr",
     "mainEntityOfPage": {{ pageUrl | jsonString | safe }},
     {% if category %}"articleSection": {{ category | jsonString | safe }},{% endif %}
-    "author": { "@type": "Person", "name": {{ (author or "A. Krémy") | jsonString | safe }}, "url": "{{ '/apropos.html' | absUrl }}" },
+    "author": { "@type": "Person", "name": {{ (author or "Remy AKPOVI") | jsonString | safe }}, "url": "{{ '/apropos.html' | absUrl }}" },
     "publisher": {
       "@type": "Organization",
       "name": "{{ site.name }}",
@@ -92,7 +92,7 @@
 
   <main data-scroll-container id="scroll-container">
     {%- import "share.njk" as share -%}
-    {%- set auteurNom = author or "A. Krémy" -%}
+    {%- set auteurNom = author or "Remy AKPOVI" -%}
     {%- set auteur = auteurs[auteurNom] -%}
     <article class="article" data-scroll-section>
       <div class="container article__container">

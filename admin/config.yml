@@ -53,8 +53,8 @@ collections:
       - label: Auteur
         name: author
         widget: select
-        default: "A. Krémy"
-        options: ["A. Krémy"]
+        default: "Remy AKPOVI"
+        options: ["Remy AKPOVI"]
         hint: "Affiché avec sa photo en haut et en bas de l'article."
       - label: Catégorie
         name: category
